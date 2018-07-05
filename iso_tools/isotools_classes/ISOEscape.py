@@ -1,5 +1,6 @@
 import urllib
 
+
 class ISOEscape:
     #=========================================================================#
     #                            Make Filename Safe                           #

@@ -8,7 +8,7 @@ the needed info from LangData to reduce some extremely hairy
 dependency problems >_<
 """
 
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
 from toolkit.json_tools import dump
 from lang_data.LangData import LangData
 

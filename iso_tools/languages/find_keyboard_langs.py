@@ -6,7 +6,9 @@ import dtaLanguages
 from input.VirtualKeyboard import DKeys
 LLangs = dtaLanguages.GetPossibleLanguages()
 
+
 LRtn = []
+
 for DLang in LLangs:
     #print DLang['EngLangName'].encode('utf-8'), DLang['Alphabet']
     if 'Alphabet' in DLang and DLang['Alphabet']:
@@ -51,7 +53,9 @@ for DLang in LLangs:
                       KeyLayout, LNotFound, LFound))
         L.sort()
         LRtn.append((DLang['EngLangName'], L))
+
 LRtn.sort()
+
 
 print
 for EngLangName, L in LRtn:
@@ -68,4 +72,5 @@ for EngLangName, L in LRtn:
         i2 += ';'
         print i1.encode('utf-8'), i2.encode('utf-8'),
     print ')'
+
 sys.exit()

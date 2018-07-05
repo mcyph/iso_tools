@@ -1,10 +1,12 @@
 from string import ascii_letters, digits
 
+
 DLetters = {}
 DNumbers = {}
 for x, c in enumerate(ascii_letters+digits):
     DLetters[c] = x+1
     DNumbers[x+1] = c
+
 
 def letters_to_code(s):
     """
@@ -18,6 +20,7 @@ def letters_to_code(s):
             ord_ = '0%s' % ord_
         LRtn.append(ord_)
     return int(''.join(LRtn)) if LRtn else ''
+
 
 def code_to_letters(I):
     """

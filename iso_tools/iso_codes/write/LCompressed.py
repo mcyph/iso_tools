@@ -1,8 +1,9 @@
 from toolkit.json_tools import dumps
-from toolkit.file_tools import file_write
-from lang_data.data_paths import data_path
+from toolkit.io.file_tools import file_write
+from iso_tools.data_paths import data_path
 from toolkit.arrays import write_array
 from toolkit.arrays import get_uni_array, get_int_array
+
 
 class LCompressed:
     def __init__(self, key):

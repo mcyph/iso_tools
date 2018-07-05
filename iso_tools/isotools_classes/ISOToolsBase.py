@@ -1,10 +1,10 @@
 from re import compile
 from collections import namedtuple
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
 from toolkit.json_tools import load
 
-from toolkit.rem_dupes import rem_dupes as _rem_dupes
-from lang_data.iso_codes import ISOCodes, DCountries
+from toolkit.list_operations.rem_dupes import rem_dupes as _rem_dupes
+from iso_tools.iso_codes import ISOCodes, DCountries
 
 from ISOEscape import ISOEscape
 from ISOGuesser import ISOGuesser

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from toolkit import json_tools
-from toolkit.file_tools import file_write
-from lang_data.data_paths import data_path
+from toolkit.io.file_tools import file_write
+from iso_tools.data_paths import data_path
 
-from OpenTSV import open_tsv
+from open_tsv import open_tsv
 from LCompressed import LCompressed
-from WriteKey import write
+from write_key import write
+
 
 def import_():
     """
@@ -36,7 +37,7 @@ def import_():
         'Ref_Name': ('ref_name', 'names', LNames)
     })
     
-    '''
+    """
     LangID[3L], 
     CountryID[2L],
     LangStatus[1L] [L(iving), 
@@ -44,7 +45,7 @@ def import_():
                     (E)X(tinct), 
                     S(econd language only)],
     Name [duplicate info]
-    '''
+    """
     DLangCodes = open_tsv(
         data_path('iso_codes', 'src/LanguageCodes.tab'),
         encoding='iso8859-1'
@@ -55,7 +56,7 @@ def import_():
         'Name': ('name', 'names', LNames)
     })
     
-    '''
+    """
     LangID[3L], 
     CountryID[2L], 
     NameType [L(anguage), 
@@ -67,7 +68,7 @@ def import_():
     NOTE: Two-letter codes have been modified 
     to be single letters to save space
     Name [WARNING: can be multiple names per ISO code!]
-    '''
+    """
     DAlternateNames = open_tsv(
         data_path('iso_codes', 'src/LanguageIndex.tab'),
         multi=True,
@@ -84,11 +85,11 @@ def import_():
         'Name': ('name', 'names', LNames)
     })
     
-    '''
+    """
     M_Id[3L], 
     I_Id[3L], 
     I_Status[A/R]
-    '''
+    """
     DMacroLangs = open_tsv(
         data_path('iso_codes', 'src/iso-639-3-macrolanguages.tab'),
         multi=True
@@ -110,10 +111,10 @@ def import_():
     })
     LNames.write()
     
-    '''
+    """
     Part2B/Part2T[3L], 
     id[3L]
-    '''
+    """
     DISO639_2 = {}
     for id in DISO639:
         D = DISO639[id]
@@ -127,9 +128,9 @@ def import_():
             DISO639_2[D['Part2T']] = {'Part3': id}
     write('DISO639_2', DISO639_2, {'Part3': ('part3', 'str', 3)})
     
-    '''
+    """
     Part1[2L], id[3L]
-    '''
+    """
     DISO639_1 = {}
     for id in DISO639:
         D = DISO639[id]
@@ -138,14 +139,14 @@ def import_():
             DISO639_1[D['Part1']] = {'Part3': id}
     write('DISO639_1', DISO639_1, {'Part3': ('part3', 'str', 3)})
     
-    '''
+    """
     Add country mappings as a simple JSON file - 
     it doesn't have a large overhead anyway :-P
     
     CountryID[2L], 
     Name[variable], 
     Area[variable]
-    '''
+    """
     DCountries = open_tsv(
         data_path('iso_codes', 'src/CountryCodes.tab'),
         multi=-1, encoding='iso8859-1'
@@ -161,4 +162,6 @@ def import_():
     
     #del DISO639, DLangCodes, DAlternateNames, DMacroLangs, DRevMacros
     #while 1: pass
+
+
 import_()

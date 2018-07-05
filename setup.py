@@ -34,7 +34,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='iso_639_tools',  # Required
+    name='iso_tools',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -63,9 +63,9 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/jiyiiy/iso_639_tools',  # Optional
+    url='https://github.com/jiyiiy/iso_tools',  # Optional
 
-    # This should be your name or the name of the organization which owns the
+    # This should be your name or the name of the rganization which owns the
     # project.
     author='David Morrissey',  # Optional
 
@@ -160,7 +160,7 @@ setup(
     # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files
     #
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    data_files=get_L_data_dir('lang_data/data'),  # Optional
+    data_files=get_L_data_dir('iso_tools/data'),  # Optional
 
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow

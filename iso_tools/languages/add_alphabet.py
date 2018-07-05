@@ -5,7 +5,8 @@ from multi_translit.translit.TranslitLoad import DISOToAlpha # (iso, script) -> 
 from dtaLanguages import GetDLangs
 DLangs = GetDLangs() # (iso, script) -> DLang
 from input.VirtualKeyboard import DKeyLayouts
-from toolkit.rem_dupes import fast_rem_dupes
+from toolkit.list_operations.rem_dupes import fast_rem_dupes
+
 
 def get_initial_spaces(S):
     LRtn = []
@@ -14,6 +15,7 @@ def get_initial_spaces(S):
             LRtn.append(Char)
         else: break
     return ''.join(LRtn)
+
 
 def process(Text):
     # TODO: Find all UNUSED scripts?
@@ -242,7 +244,9 @@ def process(Text):
         x += 1
     return '\n'.join(LRtn)
 
+
 Folder = 'Data/Languages/Data'
+
 for FileName in os.listdir(Folder):
     # First read the text and add the alphabet info
     if FileName[0] == '.': continue # SVN Hack!
@@ -255,4 +259,5 @@ for FileName in os.listdir(Folder):
     File = codecs.open(Path, 'wb', 'utf-8')
     File.write(Text)
     File.close()
+
 print '\nProgram exited normally!'

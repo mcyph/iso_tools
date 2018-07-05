@@ -1,5 +1,6 @@
 from ISOCodes import ISOCodes
 
+
 def get_D_name_to_iso():
     D = {}
 
@@ -41,7 +42,6 @@ def get_D_name_to_iso():
     D['mandarin'] = 'zh' # HACK!
     D['translingual'] = 'mul'
     return D
-
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 from DMap import DMap
 
 from toolkit.json_tools import load
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
 
 DCountries = load(data_path('iso_codes', 'CountryCodes.json'))
 
@@ -43,6 +43,7 @@ DLangStatus = {
     'X': 'extinct',
     'S': 'second language only'
 }
+
 
 class ISOCodes:
     """
@@ -354,7 +355,9 @@ class ISOCodes:
         """
         return [(D['m_id'], D['i_status']) for D in self.DRevMacros[part3]]
 
+
 ISOCodes = ISOCodes()
+
 
 if __name__ == '__main__':
     for key in ISOCodes:

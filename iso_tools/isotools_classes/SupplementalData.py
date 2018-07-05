@@ -1,8 +1,9 @@
 from json import dumps
 from xmltodict import parse
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
 
 from defines import NONE, SCRIPT, TERRITORY, VARIANT
+
 
 class SupplementalData:
     def __init__(self):
@@ -20,7 +21,6 @@ class SupplementalData:
         )
 
         print sorted(DSpeakers, key=lambda k: -DSpeakers[k]['population'])"""
-
 
     def get_D_sup_languages(self):
         LGroup = self.DSupplementalData['supplementalData']['languageData']['language']
@@ -67,7 +67,6 @@ class SupplementalData:
                     #self.DLangData = {}
 
         return DOut
-
 
     def get_D_num_speakers(self):
         #print dumps(
@@ -134,5 +133,3 @@ class SupplementalData:
                 DAdd['DCountries'] = DTerritory
 
         return DRtn
-
-

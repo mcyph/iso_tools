@@ -2,7 +2,8 @@ import os
 
 from lang_data.langdata_classes.Languages import DLangs
 from char_data.data.Langs.ISOCodes import ISOCodes
- 
+
+
 def get_L_lang_names():
     # DRtn -> {letter: [DLang, ...], ...}
     DRtn = {}
@@ -54,4 +55,5 @@ def get_L_lang_names():
             LLang.append([flag, name, iso, LAlt, LProfiles])
         LRtn.append([letter, LLang])
     return LRtn
+
 LLangNames = get_L_lang_names()

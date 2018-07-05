@@ -1,8 +1,10 @@
 from defines import SCRIPT, TERRITORY, VARIANT, NONE
 
+
 def pprint(o):
     from json import dumps
     print dumps(o, indent=4)
+
 
 class ISOGuesser:
     def __init__(self):
@@ -26,7 +28,6 @@ class ISOGuesser:
         #print sorted(self.DRevLikelySubtags.items())
         #self.DLangData = self.get_D_sup_languages()
 
-
     def pack_iso(self, iso):
         """
         Removes unneeded info from the ISO, e.g. "ja_Jpan" -> "ja",
@@ -49,7 +50,6 @@ class ISOGuesser:
             self.guess_omitted_info(iso),
             TERRITORY
         )
-
 
     def remove_unneeded_info(self, s):
         """
@@ -138,7 +138,7 @@ class ISOGuesser:
 
 
 if __name__ == '__main__':
-    from lang_data.ISOTools import ISOTools as i
+    from iso_tools.ISOTools import ISOTools as i
     from cProfile import run
 
     print i.get_L_removed('nl_Latn-NL', [

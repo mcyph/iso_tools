@@ -1,8 +1,9 @@
 from toolkit.json_tools import load
 from toolkit.arrays.ArrayUtils import read_array
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
 
 DCompressed = {}
+
 
 class LCompressed:
     def __init__(self, key):

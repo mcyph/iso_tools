@@ -1,5 +1,6 @@
 from xmltodict import parse
-from lang_data.data_paths import data_path
+from iso_tools.data_paths import data_path
+
 
 class LikelySubtags:
     def __init__(self):

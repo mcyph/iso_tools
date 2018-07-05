@@ -1,10 +1,11 @@
 from toolkit.json_tools import dumps
 from toolkit.arrays import write_array
 from toolkit.arrays import get_uni_array, get_int_array
-from toolkit.file_tools import file_write
-from lang_data.data_paths import data_path
+from toolkit.io.file_tools import file_write
+from iso_tools.data_paths import data_path
 
-from lang_data.iso_codes.LetterConv import letters_to_code
+from iso_tools.iso_codes.LetterConv import letters_to_code
+
 
 def write(path, DData, DKeys):
     LKeys = get_int_array()
