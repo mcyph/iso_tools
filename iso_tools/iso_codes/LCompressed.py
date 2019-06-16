@@ -1,5 +1,5 @@
 from toolkit.json_tools import load
-from toolkit.arrays.ArrayUtils import read_array
+from toolkit.arrays import read_array
 from iso_tools.data_paths import data_path
 
 DCompressed = {}
@@ -11,10 +11,10 @@ class LCompressed:
 
         DJSON = load(data_path('iso_codes', key+'.json'))
         
-        with open(data_path('iso_codes', key+'.bin'), 'r+b') as f:
-            self.LSeek = read_array(f, DJSON['LSeek'])
-            self.LAmount = read_array(f, DJSON['LAmount'])
-            self.LData = read_array(f, DJSON['LData'])
+        f = open(data_path('iso_codes', key+'.bin'), 'r+b')
+        self.LSeek = read_array(f, DJSON['LSeek'])
+        self.LAmount = read_array(f, DJSON['LAmount'])
+        self.LData = read_array(f, DJSON['LData'])
 
     def __getitem__(self, name):
         seek = self.LSeek[name]

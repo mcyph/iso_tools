@@ -15,9 +15,9 @@ class DMap:
             load(data_path('iso_codes', key_name+'.json'))
 
         # Load the databases
-        with open(data_path('iso_codes', key_name+'.bin'), 'r+b') as f:
-            for key in DInf:
-                DArrays[key] = read_array(f, DInf[key]['LType'])
+        f = open(data_path('iso_codes', key_name+'.bin'), 'r+b')
+        for key in DInf:
+            DArrays[key] = read_array(f, DInf[key]['LType'])
         
         self.LKeys = DArrays['LKeys']
         #self.SKeys = set(code_to_letters(i) for i in self.LKeys)
