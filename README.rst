@@ -23,9 +23,7 @@ There are multiple different standards for language codes in software:
 
 * <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>:
 
-* <a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">Local codes</a>: in format `[language[_territory][.codeset][@modifier]]` or `[language[_territory][.codeset][@modifier]]`.
-
-*
+* <a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">Local codes</a>: in format ``[language[_territory][.codeset][@modifier]]` or `[language[-territory][.codeset][@modifier]]``.
 
 When writing software such as LangLynx, I found myself needing to provide information about languages and dialects which weren't possible with any of these standards:
 
