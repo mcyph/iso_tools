@@ -116,7 +116,7 @@ class SupplementalData:
                     )
                 except (KeyError, AssertionError):
                     iso = DLang['@type']
-                    print('ISO WARNING:', iso)
+                    print('ISOTools Supplemental Data ISO not recognised:', iso)
 
 
                 #print DLang['@type'], iso
