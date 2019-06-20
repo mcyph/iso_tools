@@ -1,4 +1,3 @@
-import codecs
 import  os
 os.chdir('../../../')
 from multi_translit.translit.TranslitLoad import DISOToAlpha # (iso, script) -> LAlphabet
@@ -28,7 +27,7 @@ def process(Text):
     LLines = Text.split('\n')
     for Line in LLines:
         Line = Line.rstrip().replace('\t', '    ')
-        Line = Line.strip('\r\n'+unichr(65279)) # BOM HACK!
+        Line = Line.strip('\r\n'+chr(65279)) # BOM HACK!
         #print 'LINE:', Line.encode('utf-8')
         LRtn.append(Line)
         
@@ -125,8 +124,8 @@ def process(Text):
             JSON = JSON.replace('False', 'false')
             JSON = JSON.replace('None', 'null')
             JSON = JSON.replace("'", '"')
-            JSON = JSON.replace(u'\u200E', '') # LTR HACK!
-            print 'Keyboards:', JSON.encode('utf-8'), ord(JSON[-1]), ord(JSON[0])
+            JSON = JSON.replace('\u200E', '') # LTR HACK!
+            print('Keyboards:', JSON.encode('utf-8'), ord(JSON[-1]), ord(JSON[0]))
             LKeyboards = JSON.loads(JSON)
         else: LKeyboards = []
         
@@ -146,7 +145,7 @@ def process(Text):
                     for k2 in DLayout[k1]:
                         for LRow in DLayout[k1][k2]:
                             #print LRow
-                            LExtend = [i for i in LRow if type(i) in (str, unicode)]
+                            LExtend = [i for i in LRow if type(i) in (str, str)]
                             if k1: LAccents.extend(LExtend) # deadkeys mode, might have false positives!
                             else: LAlpha.extend(LExtend)
         LAlpha = fast_rem_dupes(LAlpha)
@@ -251,13 +250,13 @@ for FileName in os.listdir(Folder):
     # First read the text and add the alphabet info
     if FileName[0] == '.': continue # SVN Hack!
     Path = '%s/%s' % (Folder, FileName)
-    File = codecs.open(Path, 'rb', 'utf-8')
+    File = open(Path, 'r', encoding='utf-8')
     Text = process(File.read())
     File.close()
     
     # Then output the processed lines
-    File = codecs.open(Path, 'wb', 'utf-8')
+    File = open(Path, 'w', encoding='utf-8')
     File.write(Text)
     File.close()
 
-print '\nProgram exited normally!'
+print('\nProgram exited normally!')

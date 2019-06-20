@@ -1,4 +1,4 @@
-from DMap import DMap
+from .DMap import DMap
 
 from toolkit.json_tools import load
 from iso_tools.data_paths import data_path
@@ -361,12 +361,12 @@ ISOCodes = ISOCodes()
 
 if __name__ == '__main__':
     for key in ISOCodes:
-        print key, ISOCodes.get_D_iso(key, add_alternates=True)
-        print
+        print(key, ISOCodes.get_D_iso(key, add_alternates=True))
+        print()
 
     from pprint import pformat
     for ISO in ['zho', 'cmn', 'cat', #'zz2',
                 'nno', 'nor', 'msa', 'ltc']:
-        print ISO, pformat(ISOCodes.get_D_iso(ISO))
-        print
+        print(ISO, pformat(ISOCodes.get_D_iso(ISO)))
+        print()
     

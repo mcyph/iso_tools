@@ -1,4 +1,4 @@
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 
 class ISOEscape:
@@ -45,10 +45,10 @@ class ISOEscape:
         # Hopefully "!" is slightly less unsafe than "|", but I
         # think it is regarded as bad practice in some ways
         #iso = iso.replace('|', '!')
-        return urllib.quote_plus(iso.encode('utf-8')) # , safe='!'
+        return urllib.parse.quote_plus(iso.encode('utf-8')) # , safe='!'
 
     def url_unescape(self, s):
-        r = urllib.unquote_plus(s).decode('utf-8')
+        r = urllib.parse.unquote_plus(s)
         #r = r.replace('!', '|')
         self.verify_iso(r)
         return r

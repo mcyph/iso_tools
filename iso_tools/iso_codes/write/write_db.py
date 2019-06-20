@@ -3,9 +3,9 @@ from toolkit import json_tools
 from toolkit.io.file_tools import file_write
 from iso_tools.data_paths import data_path
 
-from open_tsv import open_tsv
-from LCompressed import LCompressed
-from write_key import write
+from .open_tsv import open_tsv
+from .LCompressed import LCompressed
+from .write_key import write
 
 
 def import_():
@@ -120,11 +120,11 @@ def import_():
         D = DISO639[id]
         
         if 'Part2B' in D and D['Part2T']:
-            print D['Part2B']
+            print(D['Part2B'])
             DISO639_2[D['Part2B']] = {'Part3': id}
         
         if 'Part2T' in D and D['Part2T']:
-            print D['Part2T']
+            print(D['Part2T'])
             DISO639_2[D['Part2T']] = {'Part3': id}
     write('DISO639_2', DISO639_2, {'Part3': ('part3', 'str', 3)})
     
@@ -135,7 +135,7 @@ def import_():
     for id in DISO639:
         D = DISO639[id]
         if 'Part1' in D and D['Part1']:
-            print D['Part1']
+            print(D['Part1'])
             DISO639_1[D['Part1']] = {'Part3': id}
     write('DISO639_1', DISO639_1, {'Part3': ('part3', 'str', 3)})
     

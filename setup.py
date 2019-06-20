@@ -59,8 +59,8 @@ setup(
     packages=find_packages(),
 
     install_requires=[
-        #'xmltodict',
-    ],  # Optional
+        'xmltodict',
+    ],
 
     data_files=get_L_data_dir('iso_tools/data'),
     zip_safe=False

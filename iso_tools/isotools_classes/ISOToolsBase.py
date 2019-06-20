@@ -6,12 +6,12 @@ from toolkit.json_tools import load
 from toolkit.list_operations.rem_dupes import rem_dupes as _rem_dupes
 from iso_tools.iso_codes import ISOCodes, DCountries
 
-from ISOEscape import ISOEscape
-from ISOGuesser import ISOGuesser
-from LikelySubtags import LikelySubtags
-from SupplementalData import SupplementalData
+from .ISOEscape import ISOEscape
+from .ISOGuesser import ISOGuesser
+from .LikelySubtags import LikelySubtags
+from .SupplementalData import SupplementalData
 
-DRevCountries = {v[0].lower():k for k, v in DCountries.items()}
+DRevCountries = {v[0].lower():k for k, v in list(DCountries.items())}
 
 RE_ISO = compile(
     r'^([a-z]{2,3})?'
@@ -197,7 +197,7 @@ class ISOToolsBase(ISOEscape, ISOGuesser, LikelySubtags, SupplementalData):
                     raise Exception('invalid locale: %s' % locale)
 
         return self.join(
-            **dict(zip(LKeys, LLocale))
+            **dict(list(zip(LKeys, LLocale)))
         )
 
     #=========================================================================#
@@ -240,5 +240,5 @@ class ISOToolsBase(ISOEscape, ISOGuesser, LikelySubtags, SupplementalData):
 
 if __name__ == '__main__':
     s = 'en_Latn-AU|aaa+++'
-    print ISOToolsBase().url_escape(s)
-    print ISOToolsBase().url_join(s, s)
+    print(ISOToolsBase().url_escape(s))
+    print(ISOToolsBase().url_join(s, s))

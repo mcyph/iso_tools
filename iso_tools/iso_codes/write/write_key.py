@@ -10,7 +10,7 @@ from iso_tools.iso_codes.LetterConv import letters_to_code
 def write(path, DData, DKeys):
     LKeys = get_int_array()
     
-    for in_key, LItem in DKeys.items():
+    for in_key, LItem in list(DKeys.items()):
         # First, create the array objects
         if LItem[1] == 'str':
             DItem = {'array': get_uni_array()}
@@ -40,7 +40,7 @@ def write(path, DData, DKeys):
         DKeys[in_key] = DItem
     
     # Sort the key by the converted code for bisect
-    LCodes = sorted(DData.keys(), key=lambda key: letters_to_code(key))
+    LCodes = sorted(list(DData.keys()), key=lambda key: letters_to_code(key))
     
     for key in LCodes:
         # Second, append the values
@@ -50,7 +50,7 @@ def write(path, DData, DKeys):
             # write the key
             LKeys.append(letters_to_code(key))
             
-            for in_key, DItem in DKeys.items():
+            for in_key, DItem in list(DKeys.items()):
                 if DItem['type'] == 'str':
                     value = DDataItem[in_key]
                     
@@ -78,10 +78,10 @@ def write(path, DData, DKeys):
     with open(data_path('iso_codes', '%s.bin' % path), 'wb') as f:
         DOut = {}
         DOut['LKeys'] = {'LType': write_array(f, LKeys)}
-        print path, len(LKeys), LKeys[30:50]
+        print(path, len(LKeys), LKeys[30:50])
         
         # write the values to disk
-        for in_key, DItem in DKeys.items():
+        for in_key, DItem in list(DKeys.items()):
             DItem['LType'] = write_array(f, DItem['array'])
             DOut[DItem['key']] = DItem
             

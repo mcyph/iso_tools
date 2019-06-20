@@ -2,7 +2,7 @@ from json import dumps
 from xmltodict import parse
 from iso_tools.data_paths import data_path
 
-from defines import NONE, SCRIPT, TERRITORY, VARIANT
+from .defines import NONE, SCRIPT, TERRITORY, VARIANT
 
 
 class SupplementalData:
@@ -56,7 +56,7 @@ class SupplementalData:
                 if not sec:
                     #assert not s in DOut, s
                     if s in DOut:
-                        print 'WARNING:', s, D, DOut[s]
+                        print('WARNING:', s, D, DOut[s])
                         if x: continue
                     DOut[s] = D
 
@@ -116,7 +116,7 @@ class SupplementalData:
                     )
                 except (KeyError, AssertionError):
                     iso = DLang['@type']
-                    print 'ISO WARNING:', iso
+                    print('ISO WARNING:', iso)
 
 
                 #print DLang['@type'], iso

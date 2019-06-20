@@ -1,4 +1,4 @@
-from ISOCodes import ISOCodes
+from .ISOCodes import ISOCodes
 
 
 def get_D_name_to_iso():
@@ -17,7 +17,7 @@ def get_D_name_to_iso():
         DAlt = DISO['DAlt']
         if 'language name' in DAlt:
             DLangNames = DAlt['language name']
-            for k, v in DLangNames.items():
+            for k, v in list(DLangNames.items()):
                 D[k.lower()] = part3
 
                 if 'alternate language name' in v:

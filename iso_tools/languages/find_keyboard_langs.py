@@ -57,9 +57,9 @@ for DLang in LLangs:
 LRtn.sort()
 
 
-print
+print()
 for EngLangName, L in LRtn:
-    print (EngLangName.strip()+' (').encode('utf-8'),
+    print((EngLangName.strip()+' (').encode('utf-8'), end=' ')
     iL = [(i[1], ' '.join(i[2])) for i in L[:6]]
     for i1, i2 in iL:
         i2 = [xx.strip() for xx in i2] # HACK!
@@ -70,7 +70,7 @@ for EngLangName, L in LRtn:
             i2 = ' '.join(i2)
         
         i2 += ';'
-        print i1.encode('utf-8'), i2.encode('utf-8'),
-    print ')'
+        print(i1.encode('utf-8'), i2.encode('utf-8'), end=' ')
+    print(')')
 
 sys.exit()

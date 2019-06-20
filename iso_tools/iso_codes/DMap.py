@@ -4,8 +4,8 @@ from toolkit.json_tools import load
 from toolkit.arrays import read_array
 from iso_tools.data_paths import data_path
 
-from LetterConv import letters_to_code, code_to_letters
-from LCompressed import LCompressed, DCompressed
+from .LetterConv import letters_to_code, code_to_letters
+from .LCompressed import LCompressed, DCompressed
 
 
 class DMap:

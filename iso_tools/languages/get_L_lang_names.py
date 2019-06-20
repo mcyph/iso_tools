@@ -16,7 +16,7 @@ def get_L_lang_names():
         DRtn[letter].append(DVariants[default])
     
     LRtn = []
-    for letter in sorted(DRtn.keys(), key=lambda x: x.lower()):
+    for letter in sorted(list(DRtn.keys()), key=lambda x: x.lower()):
         LLang = []
         for DLang in DRtn[letter]:
             iso = DLang['iso']

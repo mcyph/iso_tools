@@ -1,9 +1,9 @@
-from defines import SCRIPT, TERRITORY, VARIANT, NONE
+from .defines import SCRIPT, TERRITORY, VARIANT, NONE
 
 
 def pprint(o):
     from json import dumps
-    print dumps(o, indent=4)
+    print(dumps(o, indent=4))
 
 
 class ISOGuesser:
@@ -12,7 +12,7 @@ class ISOGuesser:
 
         # TODO: Check there aren't any collisions (somehow)! ======================================================================
         D = self.DRevLikelySubtags = {}
-        for k, v in DLikelySubtags.items():
+        for k, v in list(DLikelySubtags.items()):
             for i in self.get_L_removed(
                 v,
                 [
@@ -141,20 +141,20 @@ if __name__ == '__main__':
     from iso_tools.ISOTools import ISOTools as i
     from cProfile import run
 
-    print i.get_L_removed('nl_Latn-NL', [
+    print(i.get_L_removed('nl_Latn-NL', [
         NONE,
         SCRIPT,
         TERRITORY,
         SCRIPT|TERRITORY
     ],
         #rem_dupes=True
-    )
+    ))
 
-    print i.guess_omitted_info('hy')
-    print i.guess_omitted_info('ko')
-    print i.guess_omitted_info('zh')
-    print i.guess_omitted_info('en_Latn|MINE!')
-    print i.guess_omitted_info('en_Shaw')
+    print(i.guess_omitted_info('hy'))
+    print(i.guess_omitted_info('ko'))
+    print(i.guess_omitted_info('zh'))
+    print(i.guess_omitted_info('en_Latn|MINE!'))
+    print(i.guess_omitted_info('en_Shaw'))
 
     #run("for x in xrange(50000): i.guess_omitted_info('ja')")
     #for x in xrange(5000):
