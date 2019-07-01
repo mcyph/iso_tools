@@ -46,7 +46,7 @@ def get_D_name_to_iso():
     DExc = {
         'middle english': 'enm',  # 21579,
         'ancient greek': 'grc',  # 19189,
-        'norman': '	nrf',  # 10941,
+        #'norman': 'nrf',  # 10941,
         'old english': 'ang',  # 8847,
         'old french': 'fro',  # 7636,
         'old armenian': 'xcl',  # 6945,
@@ -89,6 +89,14 @@ def get_D_name_to_iso():
         'okinawan': 'ryu',  # 429,
         'ojibwe': 'oji',  # 403,
     }
+
+    for lang_name, part3 in DExc.items():
+        DISO = ISOCodes.get_D_iso(part3, add_alternates=True)
+
+        if 'part1' in DISO:
+            # Shorten the code
+            DExc[lang_name] = DISO['part1']
+
     D.update(DExc)
     return D
 
