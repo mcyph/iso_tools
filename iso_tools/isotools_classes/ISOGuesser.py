@@ -55,13 +55,17 @@ class ISOGuesser:
         """
         e.g. for "en_Latn", try remove the Latn part if obvious
         """
+        if s == 'zh_Hant':
+            return 'zh_Hant'
+
         if s in self.DRevLikelySubtags:
             r = self.DRevLikelySubtags[s]
             if r == 'zh_Hani':
                 return 'zh' # HACK!
-
             elif r == 'cmn':
                 return 'zh' # HACK!
+            elif r == 'zh_Hant':
+                return 'zh_Hant'
             return r
 
         if s == 'cmn':
@@ -69,6 +73,9 @@ class ISOGuesser:
         return s
 
     def guess_omitted_info(self, s):
+        if s == 'zh_Hant':
+            return self.join('zh', 'Hant', None, None)
+
         lang, script, territory, variant = self.split(s)
         assert lang or territory, \
             "iso or territory is required to guess omitted info: %s" % s
