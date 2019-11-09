@@ -226,16 +226,41 @@ class ISOToolsBase(ISOEscape, ISOGuesser, LikelySubtags, SupplementalData):
     #                            Join Multiple                                #
     #=========================================================================#
 
-    def join_multiple(self, L):
-        [self.verify_iso(i) for i in L]
-        assert not '_-_' in ' '.join(L)
-        return '_-_'.join(L)
+    def join_from_to(self, from_iso, to_iso):
+        """
+        Join two ISO codes together, for encoding in URLs, etc.
+        :param from_iso: the from ISO language code
+        :param to_iso: the to ISO language code
+        :return: the two ISO codes joined by "_-_" if the two ISO codes are different
+                 If they aren't, then just the single ISO code is returned.
+        """
+        [self.verify_iso(i) for i in (from_iso, to_iso)]
 
-    def split_multiple(self, s):
+        # If just one ISO, return it as-is
+        if from_iso == to_iso:
+            return from_iso
+
+        assert not '_-_' in from_iso
+        assert not '_-_' in to_iso
+
+        return '%s_-_%s' % (from_iso, to_iso)
+
+    def split_into_from_to(self, s):
+        """
+        Split two ISO codes that have been encoded with `join_from_to`
+        above into two separate ISO language codes.
+        :param s: the ISO codes that have been encoded into a string
+        :return: a list of [from_iso, to_iso]
+        """
         L = s.split('_-_')
-        assert len(L) > 1
         [self.verify_iso(i) for i in L]
-        return L
+
+        if len(L) == 1:
+            return [L[0], L[0]]
+        elif len(L) == 2:
+            return L
+        else:
+            raise ValueError("Should be one or two ISO codes encoded in string: %s" % s)
 
 
 if __name__ == '__main__':

@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # Split/join ISO code information
     print((ISOTools.join(part3='en', script='Latn')))
     print((ISOTools.split('ja')))
-    print((ISOTools.split_multiple('ja_-_en')))
+    print((ISOTools.split_into_from_to('ja_-_en')))
 
     # Fileame escape/de-escape
     print((ISOTools.filename_escape('en')))
