@@ -1,5 +1,9 @@
-from .isotools_classes import NONE, LANG, SCRIPT, TERRITORY, VARIANT
-from .isotools_classes import ISOGuesser, ISOToolsBase, LikelySubtags, SupplementalData, LangGroups
+from iso_tools.isotools_classes.defines import NONE, LANG, SCRIPT, TERRITORY, VARIANT
+from iso_tools.isotools_classes.ISOGuesser import ISOGuesser
+from iso_tools.isotools_classes.ISOToolsBase import ISOToolsBase
+from iso_tools.isotools_classes.LikelySubtags import LikelySubtags
+from iso_tools.isotools_classes.SupplementalData import SupplementalData
+from iso_tools.isotools_classes.LangGroups import LangGroups
 
 
 class ISOTools(ISOToolsBase, LangGroups):
