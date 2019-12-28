@@ -4,7 +4,7 @@ from multi_translit.translit.TranslitLoad import DISOToAlpha # (iso, script) -> 
 from dtaLanguages import GetDLangs
 DLangs = GetDLangs() # (iso, script) -> DLang
 from input.VirtualKeyboard import DKeyLayouts
-from toolkit.list_operations.rem_dupes import fast_rem_dupes
+from iso_tools.toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
 def get_initial_spaces(S):

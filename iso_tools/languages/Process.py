@@ -1,6 +1,6 @@
 from Accents import get_D_accents as conv_D_accents
 
-from toolkit.encodings.DIPA import DIPA
+from iso_tools.toolkit.encodings.DIPA import DIPA
 #from Chars.Ranges.Accents import get_D_accents
 from char_data.data.Fonts.GetSFontClasses import get_S_font_classes
 from keyboards.GetLayouts import get_S_layouts

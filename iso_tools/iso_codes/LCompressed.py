@@ -1,5 +1,5 @@
-from toolkit.json_tools import load
-from toolkit.arrays import read_array
+from iso_tools.toolkit.json_tools import load
+from iso_tools.toolkit.arrays import read_array
 from iso_tools.data_paths import data_path
 
 DCompressed = {}

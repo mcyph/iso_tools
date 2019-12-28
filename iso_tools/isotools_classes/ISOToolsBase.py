@@ -1,9 +1,9 @@
 from re import compile
 from collections import namedtuple
 from iso_tools.data_paths import data_path
-from toolkit.json_tools import load
+from iso_tools.toolkit.json_tools import load
 
-from toolkit.list_operations.rem_dupes import rem_dupes as _rem_dupes
+from iso_tools.toolkit.list_operations.rem_dupes import rem_dupes as _rem_dupes
 from iso_tools.iso_codes import ISOCodes, DCountries
 
 from .ISOEscape import ISOEscape

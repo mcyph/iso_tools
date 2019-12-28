@@ -1,7 +1,7 @@
-from toolkit.json_tools import dumps
-from toolkit.arrays import write_array
-from toolkit.arrays import get_uni_array, get_int_array
-from toolkit.io.file_tools import file_write
+from iso_tools.toolkit.json_tools import dumps
+from iso_tools.toolkit.arrays import write_array
+from iso_tools.toolkit.arrays import get_uni_array, get_int_array
+from iso_tools.toolkit.io.file_tools import file_write
 from iso_tools.data_paths import data_path
 
 from iso_tools.iso_codes.LetterConv import letters_to_code

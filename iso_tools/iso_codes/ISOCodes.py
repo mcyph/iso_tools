@@ -1,6 +1,6 @@
 from .DMap import DMap
 
-from toolkit.json_tools import load
+from iso_tools.toolkit.json_tools import load
 from iso_tools.data_paths import data_path
 
 DCountries = load(data_path('iso_codes', 'CountryCodes.json'))

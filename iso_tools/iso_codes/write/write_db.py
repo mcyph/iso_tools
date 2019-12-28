@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from toolkit import json_tools
-from toolkit.io.file_tools import file_write
+from iso_tools.toolkit.io.file_tools import file_write
 from iso_tools.data_paths import data_path
 
 from .open_tsv import open_tsv

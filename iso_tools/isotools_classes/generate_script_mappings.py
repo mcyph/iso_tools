@@ -9,7 +9,7 @@ dependency problems >_<
 """
 
 from iso_tools.data_paths import data_path
-from toolkit.json_tools import dump
+from iso_tools.toolkit.json_tools import dump
 from lang_data.LangData import LangData
 
 out = data_path('cldr', 'script_mappings.json')

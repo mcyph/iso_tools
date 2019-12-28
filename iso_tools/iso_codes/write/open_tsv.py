@@ -1,4 +1,4 @@
-from toolkit.io.file_tools import file_iter
+from iso_tools.toolkit.io.file_tools import file_iter
 
 
 def open_tsv(path, multi=False, encoding='utf-8'):
