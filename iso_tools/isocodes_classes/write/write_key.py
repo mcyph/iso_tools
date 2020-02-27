@@ -4,7 +4,7 @@ from iso_tools.toolkit.arrays import get_uni_array, get_int_array
 from iso_tools.toolkit.io.file_tools import file_write
 from iso_tools.data_paths import data_path
 
-from iso_tools.iso_codes.LetterConv import letters_to_code
+from iso_tools.isocodes_classes.LetterConv import letters_to_code
 
 
 def write(path, DData, DKeys):

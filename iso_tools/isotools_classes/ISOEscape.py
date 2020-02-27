@@ -13,9 +13,10 @@ class ISOEscape:
         self.verify_iso(iso)
         return iso.replace('|', '!')
 
-    def filename_unescape(self, s):
+    def filename_unescape(self, s, verify=True):
         r = s.replace('!', '|')
-        self.verify_iso(r)
+        if verify:
+            self.verify_iso(r)
         return r
 
     def filename_join(self, iso1, iso2, escape=True):
@@ -27,10 +28,10 @@ class ISOEscape:
 
         return '%s ~ %s' % (iso1, iso2)
 
-    def filename_split(self, s, unescape=True):
+    def filename_split(self, s, unescape=True, verify=True):
         r = s.split(' ~ ')
         if unescape:
-            r = [self.filename_unescape(i) for i in r]
+            r = [self.filename_unescape(i, verify=verify) for i in r]
         return r
 
     #=========================================================================#

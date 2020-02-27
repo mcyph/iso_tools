@@ -4,7 +4,7 @@ from iso_tools.data_paths import data_path
 from iso_tools.toolkit.json_tools import load
 
 from iso_tools.toolkit.list_operations.rem_dupes import rem_dupes as _rem_dupes
-from iso_tools.iso_codes import ISOCodes, DCountries
+from iso_tools.ISOCodes import ISOCodes, DCountries
 
 from .ISOEscape import ISOEscape
 from .ISOGuesser import ISOGuesser

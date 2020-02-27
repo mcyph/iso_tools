@@ -1,7 +1,8 @@
-from .ISOCodes import ISOCodes
+
 
 
 def get_D_name_to_iso():
+    from iso_tools.ISOCodes import ISOCodes
     D = {}
 
     for part3 in ISOCodes:

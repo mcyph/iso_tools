@@ -1,4 +1,4 @@
-from .DMap import DMap
+from iso_tools.isocodes_classes.DMap import DMap
 
 from iso_tools.toolkit.json_tools import load
 from iso_tools.data_paths import data_path
