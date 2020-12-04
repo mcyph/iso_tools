@@ -33,9 +33,9 @@ setup(
     version='0.1.0',
     description='ISO 639-related language data tools',
     long_description=long_description,
-    url='https://github.com/jiyiiy/iso_tools',
-    author='David Morrissey',
-    author_email='david.l.morrissey@gmail.com',
+    url='https://github.com/mcyph/iso_tools',
+    author='Dave Morrissey',
+    author_email='20507948+mcyph@users.noreply.github.com',
 
     classifiers=[  # Optional
         # How mature is this project? Common values are
